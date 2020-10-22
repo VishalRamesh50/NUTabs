@@ -1,0 +1,29 @@
+{
+    "manifest_version": 2,
+    "name": "NUTabs",
+    "version": "0.1.0",
+    "description": "Adds ability to open job postings from NUworks in a new tab.",
+    "icons": {
+        "512": "icons/new-tab.png"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://northeastern-csm.symplicity.com/students/app/jobs/*"
+            ],
+            "js": ["jobTabs.js"]
+        }
+    ],
+    "background": {
+        "scripts": ["background.js"]
+    },
+    "browser_specific_settings": {
+        "gecko": {
+            "update_url": "https://raw.githubusercontent.com/VishalRamesh50/NUTabs/master/updates.json"
+        }
+    },
+    "permissions": [
+        "webRequest",
+        "https://northeastern-csm.symplicity.com/students/app/jobs/*"
+    ]
+}

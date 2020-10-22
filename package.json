@@ -1,0 +1,26 @@
+{
+    "name": "nutabs",
+    "version": "0.1.0",
+    "description": "Bowser extension which adds ability to open job postings from NUworks in a new tab",
+    "main": "jobTabs.js",
+    "scripts": {
+        "start": "web-ext run",
+        "start:beta": "web-ext run --firefox=beta",
+        "start:nightly": "web-ext run --firefox=nightly",
+        "start:dev": "web-ext run --firefox=firefoxdeveloperedition",
+        "sign": "export $(cat .env | xargs) && web-ext sign",
+        "build": "web-ext build"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/VishalRamesh50/NUTabs.git"
+    },
+    "license": "GPL-3.0",
+    "bugs": {
+        "url": "https://github.com/VishalRamesh50/NUTabs/issues"
+    },
+    "homepage": "https://github.com/VishalRamesh50/NUTabs#readme",
+    "devDependencies": {
+        "web-ext": "^5.2.0"
+    }
+}

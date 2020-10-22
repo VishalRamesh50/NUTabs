@@ -1,0 +1,12 @@
+{
+    "addons": {
+        "{834ba39c-9cab-4278-87e3-74cc04379b91}": {
+            "updates": [
+                {
+                    "version": "0.1.0",
+                    "update_link": "https://github.com/VishalRamesh50/NUTabs/releases/download/0.1.0/nutabs-0.1.0-an+fx.xpi"
+                }
+            ]
+        }
+    }
+}
