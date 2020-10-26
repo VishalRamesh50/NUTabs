@@ -23,22 +23,28 @@ If for some reason it doesn't seem to work, try reloading the page. If it still 
 
 ### Firefox
 
-1. Download the [latest release](https://github.com/VishalRamesh50/NUTabs/releases/latest) `nutabs-version-an+fx.xpi` file from GitHub releases. If you download this while you're using Firefox it should ask you to add the extension right there. Give it permission to allow GitHub to install the extension, proceed, and you're done! If it didn't ask this, follow the next steps.
+1. Download the [latest release](https://github.com/VishalRamesh50/NUTabs/releases/latest) `nutabs-version-an+fx.xpi` file from GitHub releases. If you download this while you're using Firefox it should ask you to add the extension right there. Give it permission to allow GitHub to install the extension, click Add, and you're done!
+
+If it didn't ask this, follow the next steps:
+
 2. Open Firefox and type `about:addons` in your address bar.
 3. Either drag and drop your `.xpi` file in the browser or click the gear icon for settings in the top right > Install add-on From File... and select the `.xpi` file.
 4. Click the Add button when prompted.
 
 ### Google Chrome
 
-1. Download the [latest release](https://github.com/VishalRamesh50/NUTabs/releases/latest) `nutabs-version.zip` file from GitHub releases.
-2. Open Google Chrome and type `chrome://extensions/` in your address bar.
-3. Make sure Developer Mode is toggled on in the top right.
-4. Drag and drop the `.zip` file onto the browser and you're done! \
-   _If you see the warning/error:_ `Unrecognized manifest key: 'browser_specific_settings'` _you can safely ignore this. It will still work._
+1. Get the [latest version](https://chrome.google.com/webstore/detail/nutabs/phcefmljbehmneoegeokgmaboiklbnnf) from the Google Chrome Web Store!
 
 ## How to Test Locally
 
 _These notes are only if you are trying to develop for this extension. Ignore otherwise._
+
+First, clone the repository and enter the directory
+
+```sh
+git clone https://github.com/VishalRamesh50/NUTabs.git
+cd NUTabs
+```
 
 ### Firefox
 
@@ -72,4 +78,8 @@ Alternatively you could add it as a [temporary extension](https://extensionworks
 
 ### Google Chrome
 
-Follow the steps to [add the extension normally](#google-chrome) but use the current working directory instead of the `.zip` file.
+1. Open Google Chrome and type `chrome://extensions/` in your address bar.
+2. Make sure Developer Mode is toggled on in the top right.
+3. Click on the Load unpacked button in the top left corner and select the current working directory.
+
+_If you see the warning/error:_ `Unrecognized manifest key: 'browser_specific_settings'` _you can safely ignore this. It will still work._
