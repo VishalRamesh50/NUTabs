@@ -29,9 +29,7 @@ const addJobLinks = () => {
                 for (const job of jobElements) {
                     const jobID = angular.element(job).scope().$ctrl.job.job_id;
                     const jobURL = "https://northeastern-csm.symplicity.com/students/app/jobs/detail/" + jobID;
-                    const orgHTML = job.outerHTML.substring(4, job.outerHTML.length - 6);
-                    const newHTML = "<a id='nutabs' href=" + '"' + jobURL + '"' + orgHTML + "</a>";
-                    job.outerHTML = newHTML;
+                    job.outerHTML = job.outerHTML.replace(/^<div/, "<a id='nutabs' href='" + jobURL + "'").replace(new RegExp("</div>$"), "</a>");
                 }
             }
         })();`;
