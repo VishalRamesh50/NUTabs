@@ -25,11 +25,16 @@ const addJobLinks = () => {
             if ((jobElements.length === 0 || loadingBar) && !noJobResults) {
                 setTimeout(getJobElements, 1000);
             } else {
-                /* Replace all job title with an anchor tags and add the job URLs to it */
+                /* Replace all job title with an anchor tags and add the job URLs to it.
+                 Remove the click action on all the parents so the current page does not load the job.
+                 */
                 for (const job of jobElements) {
                     const jobID = angular.element(job).scope().$ctrl.job.job_id;
                     const jobURL = "https://northeastern-csm.symplicity.com/students/app/jobs/detail/" + jobID;
-                    job.outerHTML = job.outerHTML.replace(/^<div/, "<a id='nutabs' href='" + jobURL + "'").replace(new RegExp("</div>$"), "</a>");
+                    // Since the HTML is being changed the parent needs to be changed after the child but is not accessible after the change
+                    const parent = job.parentElement;
+                    job.outerHTML = job.outerHTML.replace(/^<div/, "<a id='nutabs' target='_blank' href='" + jobURL + "'").replace(new RegExp("</div>$"), "</a>");
+                    parent.outerHTML = parent.outerHTML.replace('ng-click="$ctrl.redirectToJob($ctrl.job.job_id)"', "");
                 }
             }
         })();`;
