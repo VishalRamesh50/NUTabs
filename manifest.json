@@ -1,7 +1,7 @@
 {
     "manifest_version": 2,
     "name": "NUTabs",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "description": "Adds ability to open job postings from NUworks in a new tab.",
     "icons": {
         "512": "icons/new-tab.png"
