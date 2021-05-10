@@ -1,6 +1,6 @@
 {
     "name": "nutabs",
-    "version": "0.1.2",
+    "version": "0.1.3",
     "description": "Bowser extension which adds ability to open job postings from NUworks in a new tab",
     "main": "jobTabs.js",
     "scripts": {
