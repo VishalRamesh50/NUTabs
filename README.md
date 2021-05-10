@@ -83,3 +83,49 @@ Alternatively you could add it as a [temporary extension](https://extensionworks
 3. Click on the Load unpacked button in the top left corner and select the current working directory.
 
 _If you see the warning/error:_ `Unrecognized manifest key: 'browser_specific_settings'` _you can safely ignore this. It will still work._
+
+## Developer Notes
+
+### Steps to Publish Extension
+
+_Note: Any mention of `X.Y.Z` should be replaced with the new version of the extension being published._
+
+1. Test! Make sure any changes introduced are working as expected thoroughly on both Firefox and Google Chrome.
+2. Bump version of package using `npm version X.Y.Z`.
+3. Bump the version in the `manifest.json` manually by updating the value of the `version` key with `X.Y.Z`
+4. Pre-emptively add the new version to the `updates.json` file with the update link that the newly released asset would follow using the below format.
+
+```json
+{
+    "version": "X.Y.Z",
+    "update_link": "https://github.com/VishalRamesh50/NUTabs/releases/download/X.Y.Z/nutabs-X.Y.Z-an+fx.xpi"
+}
+```
+
+4. Build the new asset using `npm run build`. This will produce a `.zip` file in the `web-ext-artifacts` directory.
+5. Setup Environment Variables if not already done
+   a. Copy the `.env.example` file to a `.env` file.
+
+    ```sh
+    cp .env.example .env
+    ```
+
+    b. Go to https://addons.mozilla.org/en-US/developers/addon/api/key/ and sign in to find the values to replace these environment variables with.
+    c. Replace the value of `WEB_EXT_API_KEY` with the value of `JWT issuer` from the site.
+    d. Replace the value of `WEB_EXT_API_SECRET` with the value of `JWT secret` from the site.
+
+6. Sign the new release using `npm run sign`. This will produce a new `.xpi` file in the `web-ext-artifacts` directory.
+7. When the new changes are merged in, create a new GitHub Release.
+   a. Name the tag version `X.Y.Z`.
+   b. Set the Release title to `X.Y.Z`.
+   c. Include detailed release notes of any changes that are important to mention to users in bullet form.
+   d. Attach both the `.xpi` and `.zip` files built in the `web-ext-artifacts` directory.
+   e. Select the Publish relase button.
+
+The extension is now ready for Firefox!
+
+8. Go to the Google Chrome Developer Dashboard and navigate to the NUTabs extension.
+9. Go to the "Package" section and select the "Upload new package" button using the `.zip` file that was built in the `web-ext-artifacts` directory.
+10. Select the “Submit for Review” button.
+
+The extension is now ready for Google Chrome!
